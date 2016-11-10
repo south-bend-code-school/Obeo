@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <title>Create account</title>
+  <link href="Login.css" rel="stylesheet">
+
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+  <script src='./main.js'></script>
+</head>
+<body>
+  <div class="icon">
+    <img class="logo" src="./logo.png">
+    <h1>obeo</h1>
+    <h3>Connecting people. Creating experiences</h3>
+  </div>
+  <div class="create">
+    <h2>Create Account</h2>
+      Full Name:<br>
+        <input id= "firstname" type="text" name="firstname" value="">
+        <br><br>
+      Email:<br>
+        <input id="email" type="text" name="email">
+        <br><br>
+      Username:<br>
+        <input id="username" type="text" name="username">
+        <br><br>
+      Password:<br>
+        <input id="psw" type="password" name="psw">
+        <br><br>
+      Re-type Password:<br>
+        <input id="retype-psw" type="password" name="psw">
+        <br><br>
+      <button id="sign-up-btn">Signup</button>
+    <p>By signing up you agree to our <a href="./TermsConditions.html">Terms & Conditions</a>.
+    </p>
+  </div>
+
+  <div id="userList" class="userList">
+
+  </div>
+</body>
+</html>

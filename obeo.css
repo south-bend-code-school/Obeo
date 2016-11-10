@@ -1,0 +1,164 @@
+body{
+  font-family: 'Oxygen', sans-serif;
+  color: darkblue;
+}
+.main
+{
+  text-align: left;
+  padding: 45px;
+  background-color: powderblue;
+}
+
+.main h1
+{
+  text-align: center;
+  color: darkblue;
+  padding-bottom: 15px;
+  font-size: 40px;
+}
+
+
+.suggested-contacts
+{
+  border-radius: 150px;
+  display: inline-block;
+  overflow: hidden;
+  border: 4px solid royalblue;
+  margin: 20px;
+
+}
+
+.suggested-contacts img
+{
+  width: 200px;
+}
+
+.location
+{
+  border: 4px solid royalblue;
+  border-radius: 60px;
+  text-align: center;
+}
+
+.tabs
+{
+  list-style: none;
+  padding: 0;
+  border-bottom: 8px solid skyblue;
+  margin-bottom: 0;
+}
+
+.tabs li
+{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: skyblue;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  font-size: 20px ;
+}
+
+.suggested-contacts-list
+{
+  background-color: skyblue;
+}
+
+.page-numbers
+{
+  list-style: none;
+  text-align: right;
+  padding: 20px;
+  background-color: skyblue;
+  margin-top: 0;
+  border-top: 4px solid royalblue;
+}
+
+.page-numbers li
+{
+  display: inline-block;
+  border-radius: 50px;
+  font-size: 18px;
+}
+
+.loc
+{
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 100px;
+  padding-bottom:100px;
+  margin: 15px;
+  background-color: skyblue;
+}
+
+.subloc
+{
+  text-align: center;
+  border-top: 3px solid mediumslateblue;
+  border-bottom: 3px solid mediumslateblue;
+}
+
+.profilepic{
+  width: 30%;
+  display: inline-block;
+  vertical-align: text-top;
+  margin-right: 7%;
+}
+
+.profileinfo{
+  width: 57%;
+  display: inline-block;
+  vertical-align: text-top;
+  background-color: white;
+  padding: 30px;
+}
+.profileinfo ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.profileinfo li{
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.profileinfo img
+{
+  margin-right: 10px;
+}
+
+.info-label
+{
+  color: darkblue;
+  margin-right: 15px;
+}
+
+.info-answer
+{
+  margin: 0px 10px;
+}
+.profilepic a
+{
+  display: inline-block;
+  padding: 15px;
+  background-color: crimson;
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+}
+.profileimg{
+  margin-bottom: 20px;
+}
+
+.edit
+{
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: darksalmon;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+  clear: both;
+}
