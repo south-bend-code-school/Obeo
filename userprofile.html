@@ -4,6 +4,13 @@
     <title>Obeo-User Profile</title>
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="obeo.css">
+
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script src='profile.js'></script>
   </head>
 
 <body>
@@ -25,33 +32,29 @@
     <li>
       <img src="http://www.clipartkid.com/images/243/small-house-icon-png-clipart-image-iconbug-com-8VpCSX-clipart.png" height="30">
       <span class="info-label">I'm from...</span>
-      <span class="info-answer">South Bend, IN</span>
-      <a href="#" class="edit">edit</a>
+      <span class="info-answer city-info"></span>
     </li>
     <li>
       <img src="https://mdxenglish.files.wordpress.com/2014/09/speech-bubbles.png?w=1200" height="30">
       <span class="info-label">I speak...</span>
-      <span class="info-answer">English</span>
-      <span class="info-answer">Spanish</span>
-      <a href="#" class="edit">edit</a>
+      <span class="info-answer language-info"></span>
     </li>
     <li>
       <img src="http://www.clker.com/cliparts/x/Y/9/x/2/a/double-palm-beach-md.png" height="30">
       <span class="info-label">I love to go...</span>
-      <span class="info-answer">enjoy nature</span>
-      <span class="info-answer">to restaurants</span>
-      <a href="#" class="edit">edit</a>
+      <span class="info-answer hobby-info"></span>
     </li>
     <li>
       <img src="http://images.clipartpanda.com/watermelon-clipart-aTeKXxqjc.gif" height="30">
       <span class="info-label">I love to eat...</span>
-      <span class="info-answer">anything</span>
-      <a href="#" class="edit">edit</a>
+      <span class="info-answer food-info"></span>
     </li>
     <li>
       <img src="http://images.clipartpanda.com/email-clipart-niBGkk9iA.png" height="30">
       <span class="info-label">Email</span>
-      <span class="info-answer">wcrisovan@gmail.com</span>
+      <span class="info-answer email-info"></span>
+    </li>
+    <li>
       <a href="#" class="edit">edit</a>
     </li>
   </ul>

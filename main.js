@@ -14,6 +14,7 @@
   function init (){
     firebase.initializeApp(config);
     $('#sign-up-btn').click(saveData);
+    $('#submitUserInfo').click(updateData);
     // listenForData();
   }
 
@@ -37,13 +38,41 @@
     });
 
     // location.assign("info.html?name="+username);
-}
+  }
+
+  function updateData(){
+
+    var username = location.search.split('name=')[1];
+
+    var city = $('.city').val();
+    var state_province = $('.state_province').val();
+    var country = $('.country').val();
+    var languages = $('.languages').val();
+    var hobbies = $('.hobbies').val();
+    var foods = $('.foods').val();
+    var traveled = $('.traveled').val();
+
+    firebase.database().ref('user/' + username).update({
+      city: city,
+      state_province: state_province,
+      country: country,
+      languages: languages,
+      hobbies: hobbies,
+      foods: foods,
+      traveled: traveled
+    });
+
+    firebase.database().ref('user/traveled').once('value').then(function(snapshot){
+      location.assign("userprofile.html?name="+username);
+    });
+
+  }
 
 // //Take web address, parse, add new info to be added (from html) with /user/username
 //   // function
 //   // var name = location.search.split('name=')[1];
 //
-// /*
+
 //   function listenForData(){
 //     firebase.database().ref('user').on('child_added', function(snapshot) {
 //       var usr = snapshot.val();
