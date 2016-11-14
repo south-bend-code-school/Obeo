@@ -3,16 +3,26 @@
   <head>
     <title>Obeo-My New Trip</title>
     <link rel="stylesheet" type="text/css" href="obeo.css">
+
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+    <script src='search.js'></script>
   </head>
 
   <body>
     <div class="loc">
-      <h1 class="location"> Location </h1>
+      <!-- <h1 class="location"> Location </h1>
         <h2 class="subloc"> City </h2>
         <h2 class="subloc"> State/Province </h2>
-        <h2 class="subloc"> Country </h2>
+        <h2 class="subloc"> Country </h2> -->
+      <h1>Search Destinations by City</h1>
+      <input class="citySearch" type="text" name="citySearch">
 
-        <a href= "file:///C:/Users/SBCS/Desktop/obeo/newtripresults.html"><h1> submit </h1></a>
+
+      <button id="searchByCity"> submit </button>
 
     </div>
 
