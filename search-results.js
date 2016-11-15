@@ -17,33 +17,38 @@
   }
 
   function showCity(){
-    var place = location.search.split('name=')[1];
+    var place = decodeURI(location.search.split('name=')[1]);
     $('.location').append(place);
   }
 
   function displayResults(){
-    var place = location.search.split('name=')[1];
+    var place = decodeURI(location.search.split('name=')[1]);
 
     var ref = firebase.database().ref('user/');
     ref.once('value', function(snapshot){
       var usr = snapshot.val();
 
       for (i in usr) {
-        var username = usr[i].firstname;
         var city = usr[i].city;
 
+        console.log(city);
+        console.log(place);
         if (city === place){
-          displayUser(username, city);
+          displayUser(i);
         }
       }
     });
   }
 
-  function displayUser(username, city){
-    $('.suggested-contacts-list').append(
-      '<h1>' + username + '</h1>' +
-      '<p>' + city + '</p>'
-    );
+  function displayUser(username){
+    firebase.storage().ref().child("images/" + username).getDownloadURL().then(function(url) {
+      $('.suggested-contacts-list').append(
+        //'<h1>' + username + '</h1>' +
+        '<a class="suggested-contacts" href="userprofile.html?name=' + username + '"><img src="' + url + '"></a>'
+      );
+    }).catch(function(error) {
+      console.log(error);
+    });
   }
 
 })();

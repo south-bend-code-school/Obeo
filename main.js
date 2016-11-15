@@ -37,9 +37,21 @@
 
   }
 
-  function updateData(){
+  function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+    .substr(1)
+        .split("&")
+        .forEach(function (item) {
+        tmp = item.split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    });
+    return result;
+  }
 
-    var username = location.search.split('name=')[1];
+  function updateData(){
+    var username = findGetParameter("name");
 
     var city = $('.city').val();
     var state_province = $('.state_province').val();
@@ -49,38 +61,26 @@
     var foods = $('.foods').val();
     var traveled = $('.traveled').val();
 
-
-
-    // // Picture
-    // var selectedFile = $('.photo').files[0];
-    //
-    // var file = selectedFile;
-    // ref.put(file).then(function(snapshot) {
-    //   console.log('You are uploading a file!');
-    // });
-
-    // // Firebase Paths
-    // var path = "images/" + username + "_" + city + "_" + selectedFile.name;
-    // var pathRef = storageRef.child(path)
-    //
-    // // Upload
-    // var uploadTask = pathRef.put(selectedFile);
-
-    firebase.database().ref('user/' + username).update({
-      city: city,
-      state_province: state_province,
-      country: country,
-      languages: languages,
-      hobbies: hobbies,
-      foods: foods,
-      traveled: traveled
-    });
-
-    firebase.database().ref('user/traveled').once('value').then(function(snapshot){
+    // Picture Stuff
+    console.log("here");
+    firebase.storage().ref().child("images/"+username).put($(".photo")[0].files[0]).then(function(snapshot) {
+      console.log("Worked!");
+      console.log(snapshot)
+    }).then(function() {
+      return firebase.database().ref('user/' + username).update({
+        city: city,
+        state_province: state_province,
+        country: country,
+        languages: languages,
+        hobbies: hobbies,
+        foods: foods,
+        traveled: traveled,
+      });
+    }).then(function() {
       location.assign("userprofile.html?name="+username);
+    }).catch(function(error) {
+      alert(error.message);
     });
-
   }
-
 
 })();

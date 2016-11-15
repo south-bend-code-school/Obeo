@@ -16,28 +16,49 @@
     $('.edit').click(edit);
   }
 
+  function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+    .substr(1)
+        .split("&")
+        .forEach(function (item) {
+        tmp = item.split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    });
+    return result;
+  }
+
   function loadData(){
-    var username = location.search.split('name=')[1];
+    //var username = location.search.split('name=')[1];
+    var username = findGetParameter("name") || "david";
 
     firebase.database().ref('user/' + username).once('value', function(snapshot){
       var user = snapshot.val();
 
-      var city = user.city;
-      var country = user.country;
-      var email = user.email;
-      var firstname = user.firstname;
-      var foods = user.foods;
-      var hobbies = user.hobbies;
-      var languages = user.languages;
-      var state_province = user.state_province;
-      var traveled = user.traveled;
-
-      $('.city-info').append(city + ", " + state_province);
-      $('.language-info').append(languages);
-      $('.hobby-info').append(hobbies);
-      $('.food-info').append(foods);
-      $('.email-info').append(email);
-
+      if (user) {
+        var city = user.city;
+        var country = user.country;
+        var email = user.email;
+        var firstname = user.firstname;
+        var foods = user.foods;
+        var hobbies = user.hobbies;
+        var languages = user.languages;
+        var state_province = user.state_province;
+        var traveled = user.traveled;
+  
+        $('.city-info').append(city + ", " + state_province);
+        $('.language-info').append(languages);
+        $('.hobby-info').append(hobbies);
+        $('.food-info').append(foods);
+        $('.email-info').append(email);
+  
+        firebase.storage().ref().child("images/" + snapshot.key).getDownloadURL().then(function(url) {
+          $("#profilepic").attr("src", url);
+        }).catch(function(error) {
+          console.log(error);
+        });
+      }
 
     });
   }
